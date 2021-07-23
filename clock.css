@@ -1,0 +1,95 @@
+html,body{
+  height: 100%;
+}
+/*style for whole body*/
+body{
+  background:black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.clock{
+  height: 200px;
+  width: 200px;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+/*grouping selector*/
+.clock_second,
+.clock_minute,
+.clock_hour, 
+.clock_indicator{
+  position: absolute;
+  left: calc(50% 1px);
+  background: #f4eed7;
+  width: 6px;
+  transform-origin: bottom center;
+  z-index: 2;
+  border-radius: 1px;
+
+}
+.clock_second{
+  height: 90px;
+  width: 3px;
+  background: orangered;
+  margin-top: 10px;
+  z-index: 3;
+  animation: time 60s infinite steps(60);
+  border-radius: 2px;
+}
+.clock_minute{
+  height: 80px;
+  width: 7px;
+  background:rgb(2, 172, 44);
+  margin-top: 20px;
+  z-index: 2;
+  animation: time 3600s linear infinite;
+  opacity: 75;
+ border-radius: 2px;
+
+}
+.clock_hour{
+  height: 60px;
+  width: 10px;
+  background:palevioletred;
+  margin-top: 40px;
+  z-index: 1;
+  animation: time 43200s linear infinite;
+  border-radius: 2px;
+}
+.clock_axis{
+  background:teal;
+  width: 12px;
+  height: 12px;
+  border-radius: 5px;
+  position: absolute;
+  top: 58%;
+  z-index: 4;
+}
+.clock-indicator{
+  height: 98px;
+  border-top: 2px solid white;
+  background:none;
+}
+.clock_indicator:nth-of-type(5n){
+  opacity: 1;
+  height: 93px;
+  border-top: 7px solid yellow;
+  background:none;
+
+}
+section:nth-of-type(1){
+transform: rotateZ(calc(6deg * 1));
+
+}
+@keyframes time{
+  to{
+    transform: rotateZ(360deg);
+  }
+}
